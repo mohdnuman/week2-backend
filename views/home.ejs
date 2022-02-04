@@ -1,12 +1,17 @@
+<link rel="stylesheet" href="/css/home.css">
+
 <div id="header-cont">
-    <span style="font-weight: 600; font-size: 2rem;">GenieGradz</span>
+    <span style="font-weight: 600; font-size: 2rem;" id="logo">GenieGradz</span>
     <span id="auth-links">
          <% if(locals.user) {%>
-         <span><%=user.name%></span>
-         <span><a href="/user/sign-out">Sign Out</a></span>
+         <span class="user-name"><%=user.firstName%></span>
+         <span ><a href="/user/sign-out" class="sign-out-button" >Sign Out</a></span>
+        
          <% } else { %>
-             <span><a href="/user/sign-in">Sign In</a></span>
-             <span><a href="/user/sign-up">Sign up</a></span>
+            
+             <span ><a href="/user/sign-in" class="sign-in-button">Sign In</a></span>
+             <span ><a href="/user/sign-up" class="sign-up-button">Sign up</a></span>
+            
          <%}%>
      </span>
  </div>

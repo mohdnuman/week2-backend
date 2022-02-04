@@ -1,11 +1,15 @@
+<link rel="stylesheet" href="/css/profile.css">
 
-
+<div class="profile-cont">
+    <h2>
+        User Profile
+    </h2>
  <%if(locals.user.id==profile_user.id){%>
      <form action="/user/update/<%= profile_user.id%>" method="POST" enctype="multipart/form-data">
-         <input type="text" name="name" value="<%=profile_user.username%>">
-         <input type="email" name="email" value="<%=profile_user.email%>">
-         <input type="file" name="avatar" placeholder="Profile Picture">
-         <input type="submit" value="Update">
+         <input type="text" name="name" value="<%=profile_user.username%>" class="input-field">
+         <input type="email" name="email" value="<%=profile_user.email%>" class="input-field">
+         <input type="file" name="avatar" placeholder="Profile Picture" class="input-field">
+         <input type="submit" value="Update" class="button">
      </form>
  
  <%} else{ %>
@@ -14,4 +18,5 @@
      <h1><%=profile_user.email%></h1>
  
  <%}%>  
+</div>
     

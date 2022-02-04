@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+body {
+  margin: 0px;
+}
+#header-cont {
+  height: 8vh;
+  background: rgb(2, 0, 36);
+  background: radial-gradient(
+    circle,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
+}
+
+#logo{
+    font-family: 'Anton', sans-serif;
+    font-size: 5vh;
+    margin-left: 10px;
+}
+#auth-links{
+    margin-left: 75vw;
+}
+
+.user-name{
+    font-family: 'Anton', sans-serif;
+    margin-right: 10px;
+}
+.sign-in-button{
+    font-family: 'Anton', sans-serif;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color:black;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin:10px ;
+    padding: 4px;
+}
+.sign-out-button{
+    font-family: 'Anton', sans-serif;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color:black;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 4px;
+}
+.sign-up-button{
+    font-family: 'Anton', sans-serif;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color:black;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 4px;
+}
+
