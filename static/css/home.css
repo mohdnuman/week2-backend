@@ -63,6 +63,7 @@ body {
   margin: 10px;
   position: relative;
   left: 77vw;
+  /* overflow: scroll; */
 }
 .user-heading{
   margin-left: 7.5vw;
