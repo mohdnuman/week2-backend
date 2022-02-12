@@ -76,9 +76,11 @@ body {
   text-decoration: none;
   color: black;
   font-family: 'Anton', sans-serif;
+  border-bottom: 2px solid white;
 }
 .users-name:hover{
   border-bottom:2px solid black ;
+  transition: 0.5s ease-in-out;
 }
 .user-users{
   margin:10px;
