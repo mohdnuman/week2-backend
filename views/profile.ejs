@@ -14,9 +14,9 @@
     class="avatar"
   />
   <div class="user-follow-details">
-    <span><span><%=profile_user.followers.length%></span><span style="font-weight: 700;"> Followers</span></span>
+    <span style="font-weight: 600; font-size: 1.4rem;"><%=profile_user.followers.length%></span><span style="font-weight: 700; font-family: 'Anton', sans-serif;"> Followers</span>
     &nbsp;&nbsp;
-    <span></span><span><%=profile_user.following.length%></span><span style="font-weight: 700;"> Following</span></span>
+    <span style="font-weight: 600; font-size: 1.4rem;"><%=profile_user.following.length%></span><span style="font-weight: 700; font-family: 'Anton', sans-serif;"> Following</span>
   </div>
   <form
     action="/user/update/<%= profile_user.id%>"
@@ -56,9 +56,9 @@
   <h3 class="user-name"><%=profile_user.firstName%></h3>
   <h3 class="user-email"><%=profile_user.email%></h3>
   <div class="user-follow-details">
-    <span><span><%=profile_user.followers.length%></span><span style="font-weight: 700; font-family: 'Anton', sans-serif;"> Followers</span></span>
+    <span style="font-weight: 600; font-size: 1.4rem;"><%=profile_user.followers.length%></span><span style="font-weight: 700; font-family: 'Anton', sans-serif;"> Followers</span>
     &nbsp;&nbsp;
-    <span></span><span><%=profile_user.following.length%></span><span style="font-weight: 700; font-family: 'Anton', sans-serif; "> Following</span></span>
+    <span style="font-weight: 600; font-size: 1.4rem;"><%=profile_user.following.length%></span><span style="font-weight: 700; font-family: 'Anton', sans-serif; "> Following</span>
   </div>
 
 <%let flag=false;
