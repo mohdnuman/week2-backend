@@ -2,16 +2,19 @@ const User=require('../models/user');
 const fs=require('fs');
 const path=require('path');
 
-module.exports.profile=function(req,res){
-    User.findById(req.params.id,function(err,user){
-        if(err){
-            return;
-        }
-        return res.render('profile',{
-            profile_user:user
-        });
+module.exports.profile=async function(req,res){
+    try{
+    let user=await User.findById(req.params.id).populate('followers').populate('following');
 
+    return res.render('profile',{
+        profile_user:user
     });
+}
+catch(error){
+    console.log(error);
+    return;
+}
+
 }
 
 module.exports.signup=function(req,res){
@@ -63,4 +66,36 @@ module.exports.createSession=function(req,res){
 module.exports.destroySession=function(req,res){
     req.logout();
     return res.redirect('/');
+}
+
+module.exports.update=async function(req,res){
+    if(req.user.id==req.params.id){
+        try{
+            let user=await User.findById(req.params.id);
+            User.uploadedAvatar(req,res,function(err){
+                if(err)console.log("**********Multer Error :",err);
+
+                user.username=req.body.name;
+                user.email=req.body.email;
+
+                if(req.file){
+                    if(user.avatar){
+                        if(fs.existsSync(path.join(__dirname,'..',user.avatar))){
+                        fs.unlinkSync(path.join(__dirname,'..',user.avatar));
+                        }
+                    }
+                    user.avatar=User.avatarPath+'/'+req.file.filename;
+                }
+                user.save();
+                return res.redirect('back');
+
+            })
+
+        }catch(err){
+            return;
+        }
+    }
+    else{
+        return res.status(401).send('Unauthorised');
+    }
 }

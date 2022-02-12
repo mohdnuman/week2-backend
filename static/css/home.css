@@ -55,4 +55,35 @@ body {
     border-radius: 5px;
     padding: 4px;
 }
-
+#users{
+  border:2px solid black;
+  border-radius: 10px;
+  width: 20vw;
+  height: 80vh;
+  margin: 10px;
+  position: relative;
+  left: 77vw;
+}
+.user-heading{
+  margin-left: 7.5vw;
+  font-family: 'Anton', sans-serif;
+}
+.users-name{
+  position: relative;
+  bottom: 15px;
+  font-style: none;
+  text-decoration: none;
+  color: black;
+  font-family: 'Anton', sans-serif;
+}
+.users-name:hover{
+  border-bottom:2px solid black ;
+}
+.user-users{
+  margin:10px;
+  border-bottom:1px solid grey;
+}
+a{
+  text-decoration: none;
+  color: black;
+}

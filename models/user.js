@@ -1,60 +1,78 @@
 const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
-const bcrypt = require("bcrypt");
+const multer = require("multer");
+const path = require("path");
 
-const roleSchema = new Schema({
-  username: {
-    type: String,
-    required: true,
+const AVATAR_PATH = path.join("/uploads/users/avatars");
+
+const userSchema = new mongoose.Schema(
+  {
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    password: {
+      type: String,
+      required: true,
+    },
+    username: {
+      type: String,
+      required: true,
+    },
+    firstName: {
+      type: String,
+      required: true,
+    },
+    lastName: {
+      type: String,
+      required: true,
+    },
+    avatar: {
+      type: String,
+    },
+    role: {
+      type: String,
+      required: true,
+    },
+    grade: {
+      type: String,
+    },
+    course: {
+      type: String,
+    },
+    followers: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+      },
+    ],
+    following: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+      },
+    ],
   },
-  firstName: {
-    type: String,
-    required: true,
+  {
+    timeStamps: true,
+  }
+);
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, path.join(__dirname, "..", AVATAR_PATH));
   },
-  lastName: {
-    type: String,
-    required: true,
-  },
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  password: {
-    type: String,
-    required: true,
-  },
-  role: {
-    type: String,
-    required: true,
-  },
-  grade: {
-    type: String,
-  },
-  course: {
-    type: String,
+  filename: function (req, file, cb) {
+    cb(null, file.fieldname + "-" + Date.now());
   },
 });
 
-const studentPrivateField = ["grade", "course"];
+//static methods
+userSchema.statics.uploadedAvatar = multer({ storage: storage }).single(
+  "avatar"
+);
+userSchema.statics.avatarPath = AVATAR_PATH;
 
-// roleSchema.pre("save", async function (next) {
-//   const user = this;
-//   if (!user.isModified("password")) return next();
+const User = mongoose.model("User", userSchema);
 
-//   // Random additional data
-//   const saltWorkFactor = process.env.SALTWORKFACTOR || 10;
-//   const salt = await bcrypt.genSalt(saltWorkFactor);
-
-//   const hash = await bcrypt.hashSync(user.password, salt);
-
-//   // Replace the password with the hash
-//   user.password = hash;
-
-//   return next();
-// });
-
-const Role = mongoose.model("role", roleSchema);
-
-// module.exports = { Role, studentPrivateField };
-module.exports= Role;
+module.exports = User;

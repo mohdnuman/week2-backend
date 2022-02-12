@@ -29,6 +29,7 @@ passport.use(new googleStrategy({
                     email:profile.emails[0].value,
                     password: crypto.randomBytes(20).toString("hex"),
                     role:'student',
+                    grade:'a'
 
                 },function(err,user){
                     if(err){

@@ -7,7 +7,7 @@ h2{
 .profile-cont{
     height: auto;
     width: 30vw;
-    margin:0 auto ;
+    margin:10px auto ;
     border: 2px solid grey;
     border-radius: 10px;
 }
@@ -30,4 +30,51 @@ h2{
     background-color: white;
     text-align: center;
     margin-left: 13vw;
+}
+.avatar{
+    position: relative;
+    left: 11vw;
+}
+.user-follow-details{
+    margin-left:8.5vw ;
+    margin-top: 4vh;
+    margin-bottom:4vh;
+}
+.follow-button{
+    border: 1px solid black;
+    border-radius: 5px;
+    margin:10px ;
+    padding: 4px;
+    background-color: #1b74e4;
+    font-family: 'Anton', sans-serif;
+    text-align: center;
+    margin-left: 12vw;
+    width: 5vw;
+}
+.follow-button:hover{
+    background-color: white;
+}
+h3{
+    font-family: 'Anton', sans-serif;
+}
+.user-name{
+    text-align: center;
+}
+.user-email{
+   text-align: center;
+}
+.following-button{
+    border: 1px solid black;
+    border-radius: 5px;
+    margin:10px ;
+    padding: 4px;
+    background-color: white;
+    font-family: 'Anton', sans-serif;
+    text-align: center;
+    margin-left: 12vw;
+    width: 5vw;
+    color: black;
+}
+.following-button:hover{
+    cursor: pointer;
 }

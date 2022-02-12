@@ -1,22 +1,85 @@
-<link rel="stylesheet" href="/css/profile.css">
-
+<link rel="stylesheet" href="/css/profile.css" />
+<link rel="stylesheet" href="/css/home.css" />
+<div id="profile-cont">
+<%-include('./_navbar.ejs') %>
 <div class="profile-cont">
-    <h2>
-        User Profile
-    </h2>
- <%if(locals.user.id==profile_user.id){%>
-     <form action="/user/update/<%= profile_user.id%>" method="POST" enctype="multipart/form-data">
-         <input type="text" name="name" value="<%=profile_user.username%>" class="input-field">
-         <input type="email" name="email" value="<%=profile_user.email%>" class="input-field">
-         <input type="file" name="avatar" placeholder="Profile Picture" class="input-field">
-         <input type="submit" value="Update" class="button">
-     </form>
- 
- <%} else{ %>
+  <h2>User Profile</h2>
+  <%if(locals.user.id==profile_user.id){%>
+  <img
+    src="<%=user.avatar%>"
+    alt="<%=profile_user.username%>"
+    width="100px"
+    height="100px"
+    style="border-radius: 50%"
+    class="avatar"
+  />
+  <div class="user-follow-details">
+    <span><span><%=profile_user.followers.length%></span><span style="font-weight: 700;"> Followers</span></span>
+    &nbsp;&nbsp;
+    <span></span><span><%=profile_user.following.length%></span><span style="font-weight: 700;"> Following</span></span>
+  </div>
+  <form
+    action="/user/update/<%= profile_user.id%>"
+    method="POST"
+    enctype="multipart/form-data"
+  >
+    <input
+      type="text"
+      name="name"
+      value="<%=profile_user.username%>"
+      class="input-field"
+    />
+    <input
+      type="email"
+      name="email"
+      value="<%=profile_user.email%>"
+      class="input-field"
+    />
+    <input
+      type="file"
+      name="avatar"
+      placeholder="Profile Picture"
+      class="input-field"
+    />
+    <input type="submit" value="Update" class="button" />
+  </form>
+
+  <%} else{ %>
+    <img
+    src="<%=user.avatar%>"
+    alt="<%=profile_user.username%>"
+    width="100px"
+    height="100px"
+    style="border-radius: 50%"
+    class="avatar"
+  />
+  <h3 class="user-name"><%=profile_user.firstName%></h3>
+  <h3 class="user-email"><%=profile_user.email%></h3>
+  <div class="user-follow-details">
+    <span><span><%=profile_user.followers.length%></span><span style="font-weight: 700; font-family: 'Anton', sans-serif;"> Followers</span></span>
+    &nbsp;&nbsp;
+    <span></span><span><%=profile_user.following.length%></span><span style="font-weight: 700; font-family: 'Anton', sans-serif; "> Following</span></span>
+  </div>
+
+<%let flag=false;
+for(u of profile_user.followers){
+    if(u.id==user.id){
+        flag=true;
+    }
+}
+%>
+<%if(!flag){%>
+    <form action="/connection/follow/<%=profile_user._id%>" method="post">
+        <button type="submit" class="follow-button">Follow</button>
+    </form>
+<%}else{%>
+    <form action="/connection/unfollow/<%=profile_user._id%>" method="post">
+    <button type="submit" class="following-button">Unfollow</button>
+    </form>
+<%}%>
+
     
-     <h1><%=profile_user.firstName%></h1>
-     <h1><%=profile_user.email%></h1>
- 
- <%}%>  
+<%}%>
+
 </div>
-    
+</div>

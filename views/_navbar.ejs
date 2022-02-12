@@ -1,0 +1,15 @@
+<div id="header-cont">
+    <a href="/"><span style="font-weight: 600; font-size: 2rem" id="logo">GenieGradz</span></a>
+    <span id="auth-links">
+      <% if(locals.user) {%>
+      <span class="user-name"><%=user.firstName%></span>
+      <span><a href="/user/sign-out" class="sign-out-button">Sign Out</a></span>
+  
+      <% } else { %>
+  
+      <span><a href="/user/sign-in" class="sign-in-button">Sign In</a></span>
+      <span><a href="/user/sign-up" class="sign-up-button">Sign up</a></span>
+  
+      <%}%>
+    </span>
+  </div>
