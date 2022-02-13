@@ -50,8 +50,10 @@
 .delete-post-button{
     background-color: white;
     border: 0px;
-    border-bottom: 1px solid black;
-    border-right:1px solid black;
-    border-left: 1px solid black;
-
+    box-shadow:2px 2px 2px blue;
+    border: 1px solid black;
+    font-family: 'Anton', sans-serif;
+}
+.delete-post-button:hover{
+    cursor: pointer;
 }
