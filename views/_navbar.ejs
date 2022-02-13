@@ -14,7 +14,7 @@
       style="border-radius: 50%"
       
     />
-    <span class="user-name"><%=user.firstName%></span>
+    <a href="/user/profile/<%=user.id%>"><span class="user-name"><%=user.firstName%></span></a>
     <span><a href="/user/sign-out" class="sign-out-button">Sign Out</a></span>
 
     <% } else { %>

@@ -1,0 +1,17 @@
+<link rel="stylesheet" href="/css/postList.css" />
+<div class="post-list-cont">
+  <%for(p of posts){%>
+  <div class="post-cont">
+    <img
+      src="<%=p.user.avatar%>"
+      alt="<%=p.user.username%>"
+      width="40px"
+      height="40px"
+      style="border-radius: 50%"
+      class="avatar"
+    />
+    <a href="/user/profile/<%=p.user.id%>"><span class="post-user-name"><%=p.user.username%></span></a>
+    <div class="post-content"><%=p.content%></div>
+  </div>
+  <%}%>
+</div>

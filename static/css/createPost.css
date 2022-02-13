@@ -1,6 +1,6 @@
 .post-input{
     margin: 10px;
-    width: 30vw;
+    width: 55vw;
     height: 15vh;
     display: inline-block;
     border: 2px solid blue;
@@ -28,8 +28,9 @@
     background-color: whitesmoke;
 }
 .post-feed{
-    width: 40vw;
-    margin: 10px 17vw;
+    width: 70vw;
+    margin: 20px;
+    /* margin: 10px 17vw; */
     /* background-color: lightgray; */
     border: 2px solid black;
     border-radius: 10px;
