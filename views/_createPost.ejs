@@ -1,0 +1,13 @@
+<link rel="stylesheet" href="/css/createPost.css" />
+<%if(locals.user){%>
+<div class="post-feed">
+    <h1>Create A Post</h1>
+   
+        <form action="/post/create" id="new-post-form" method="POST">
+            <textarea name="content"  cols="30" rows="3" placeholder="Type here...." class="post-input"></textarea>
+            <input type="submit" value="Post" class="post-button">
+        </form>
+     
+</div>
+<%}%>
+

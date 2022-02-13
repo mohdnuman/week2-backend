@@ -1,0 +1,40 @@
+.post-input{
+    margin: 10px;
+    width: 30vw;
+    height: 15vh;
+    display: inline-block;
+    border: 2px solid blue;
+}
+.post-button{
+    margin: 10px;
+    padding: 5px 30px;
+    background: rgb(2, 0, 36);
+  background: radial-gradient(
+    circle,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  color: white;
+    border: 2px solid blue;
+    border-radius: 10px;
+    display: inline-block;
+    font-family: 'Anton', sans-serif;
+    position: relative;
+    bottom: 3vh;
+}
+.post-button:hover{
+    cursor: pointer;
+    background-color: whitesmoke;
+}
+.post-feed{
+    width: 40vw;
+    margin: 10px 17vw;
+    /* background-color: lightgray; */
+    border: 2px solid black;
+    border-radius: 10px;
+}
+h1{
+    font-family: 'Anton', sans-serif;
+    margin: 10px;
+}

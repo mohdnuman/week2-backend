@@ -78,3 +78,72 @@ h3{
 .following-button:hover{
     cursor: pointer;
 }
+.list-avatar{
+   
+}
+.follower{
+    padding: 10px;
+    border-bottom: 1px solid gray;
+    border-top: 1px solid gray;
+}
+/* .followers-list{
+    border: 2px solid black;
+    border-radius: 10px;
+    height: 30vh;
+    width: 25vw;
+    overflow: scroll;
+    margin: 0 auto;
+} */
+
+.profile-cont.active{
+    filter: blur(20px);
+    pointer-events: none;
+    user-select: none;
+}
+#followers-popup{
+    position:fixed;
+    top:40%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width: 600px;
+    height: 60vh;
+    padding: 30px;
+    box-shadow: 0 5px 30px rgba(0,0,0,.30);
+    background-color: #fff;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+
+}
+
+#followers-popup.active{
+    top: 50%;
+    visibility: visible;
+    opacity: 1;
+    transition:0.5s;
+
+}
+
+#following-popup{
+    position:fixed;
+    top:40%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    width: 600px;
+    height: 60vh;
+    padding: 30px;
+    box-shadow: 0 5px 30px rgba(0,0,0,.30);
+    background-color: #fff;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s;
+
+}
+
+#following-popup.active{
+    top: 50%;
+    visibility: visible;
+    opacity: 1;
+    transition:0.5s;
+
+}

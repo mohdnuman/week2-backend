@@ -20,7 +20,7 @@ body {
     margin-left: 10px;
 }
 #auth-links{
-    margin-left: 75vw;
+    margin-left: 72vw;
 }
 
 .user-name{
@@ -61,8 +61,9 @@ body {
   width: 20vw;
   height: 80vh;
   margin: 10px;
-  position: relative;
+  position: fixed;
   left: 77vw;
+  top: 10vh;
   /* overflow: scroll; */
 }
 .user-heading{

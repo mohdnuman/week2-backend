@@ -1,85 +1,116 @@
 <link rel="stylesheet" href="/css/profile.css" />
 <link rel="stylesheet" href="/css/home.css" />
 <div id="profile-cont">
-<%-include('./_navbar.ejs') %>
-<div class="profile-cont">
-  <h2>User Profile</h2>
-  <%if(locals.user.id==profile_user.id){%>
-  <img
-    src="<%=user.avatar%>"
-    alt="<%=profile_user.username%>"
-    width="100px"
-    height="100px"
-    style="border-radius: 50%"
-    class="avatar"
-  />
-  <div class="user-follow-details">
-    <span style="font-weight: 600; font-size: 1.4rem;"><%=profile_user.followers.length%></span><span style="font-weight: 700; font-family: 'Anton', sans-serif;"> Followers</span>
-    &nbsp;&nbsp;
-    <span style="font-weight: 600; font-size: 1.4rem;"><%=profile_user.following.length%></span><span style="font-weight: 700; font-family: 'Anton', sans-serif;"> Following</span>
-  </div>
-  <form
-    action="/user/update/<%= profile_user.id%>"
-    method="POST"
-    enctype="multipart/form-data"
-  >
-    <input
-      type="text"
-      name="name"
-      value="<%=profile_user.username%>"
-      class="input-field"
-    />
-    <input
-      type="email"
-      name="email"
-      value="<%=profile_user.email%>"
-      class="input-field"
-    />
-    <input
-      type="file"
-      name="avatar"
-      placeholder="Profile Picture"
-      class="input-field"
-    />
-    <input type="submit" value="Update" class="button" />
-  </form>
-
-  <%} else{ %>
+  <%-include('./_navbar.ejs') %>
+  <div class="profile-cont">
+    <h2>User Profile</h2>
+    <%if(locals.user.id==profile_user.id){%>
     <img
-    src="<%=profile_user.avatar%>"
-    alt="<%=profile_user.username%>"
-    width="100px"
-    height="100px"
-    style="border-radius: 50%"
-    class="avatar"
-  />
-  <h3 class="user-name"><%=profile_user.firstName%></h3>
-  <h3 class="user-email"><%=profile_user.email%></h3>
-  <div class="user-follow-details">
-    <span style="font-weight: 600; font-size: 1.4rem;"><%=profile_user.followers.length%></span><span style="font-weight: 700; font-family: 'Anton', sans-serif;"> Followers</span>
-    &nbsp;&nbsp;
-    <span style="font-weight: 600; font-size: 1.4rem;"><%=profile_user.following.length%></span><span style="font-weight: 700; font-family: 'Anton', sans-serif; "> Following</span>
-  </div>
+      src="<%=user.avatar%>"
+      alt="<%=profile_user.username%>"
+      width="100px"
+      height="100px"
+      style="border-radius: 50%"
+      class="avatar"
+    />
+    <div class="user-follow-details">
+      <span style="font-weight: 600; font-size: 1.4rem"
+        ><%=profile_user.followers.length%></span
+      ><a href="#" onclick="toggle()"
+      ><span style="font-weight: 700; font-family: 'Anton', sans-serif">
+        Followers</span
+      ></a>
+      &nbsp;&nbsp;
+      <span style="font-weight: 600; font-size: 1.4rem"
+        ><%=profile_user.following.length%></span
+      ><a href="#" onclick="toggle2()"
+      ><span style="font-weight: 700; font-family: 'Anton', sans-serif">
+        Following</span
+      ></a>
+    </div>
+    <form
+      action="/user/update/<%= profile_user.id%>"
+      method="POST"
+      enctype="multipart/form-data"
+    >
+      <input
+        type="text"
+        name="name"
+        value="<%=profile_user.username%>"
+        class="input-field"
+      />
+      <input
+        type="email"
+        name="email"
+        value="<%=profile_user.email%>"
+        class="input-field"
+      />
+      <input
+        type="file"
+        name="avatar"
+        placeholder="Profile Picture"
+        class="input-field"
+      />
+      <input type="submit" value="Update" class="button" />
+    </form>
+    <div id="followers-popup"><%-include('./_followersList.ejs') %></div>
+    <div id="following-popup"><%-include('./_followingList.ejs') %></div>
 
-<%let flag=false;
-for(u of profile_user.followers){
-    if(u.id==user.id){
-        flag=true;
-    }
-}
-%>
-<%if(!flag){%>
+    <%} else{ %>
+    <img
+      src="<%=profile_user.avatar%>"
+      alt="<%=profile_user.username%>"
+      width="100px"
+      height="100px"
+      style="border-radius: 50%"
+      class="avatar"
+    />
+    <h3 class="user-name"><%=profile_user.firstName%></h3>
+    <h3 class="user-email"><%=profile_user.email%></h3>
+    <div class="user-follow-details">
+      <span style="font-weight: 600; font-size: 1.4rem"
+        ><%=profile_user.followers.length%></span
+      ><a href="#" onclick="toggle()"
+        ><span style="font-weight: 700; font-family: 'Anton', sans-serif">
+          Followers</span
+        ></a
+      >
+      &nbsp;&nbsp;
+      <span style="font-weight: 600; font-size: 1.4rem"
+        ><%=profile_user.following.length%></span
+      ><a href="#" onclick="toggle2()"
+      ><span style="font-weight: 700; font-family: 'Anton', sans-serif">
+        Following</span
+      ></a>
+    </div>
+    <div id="followers-popup"><%-include('./_followersList.ejs') %></div>
+    <div id="following-popup"><%-include('./_followingList.ejs') %></div>
+
+    <%let flag=false; for(u of profile_user.followers){ if(u.id==user.id){
+    flag=true; } } %> <%if(!flag){%>
     <form action="/connection/follow/<%=profile_user._id%>" method="post">
-        <button type="submit" class="follow-button">Follow</button>
+      <button type="submit" class="follow-button">Follow</button>
     </form>
-<%}else{%>
+    <%}else{%>
     <form action="/connection/unfollow/<%=profile_user._id%>" method="post">
-    <button type="submit" class="following-button">Unfollow</button>
+      <button type="submit" class="following-button">Unfollow</button>
     </form>
-<%}%>
-
-    
-<%}%>
-
+    <%}%> <%}%>
+  </div>
 </div>
-</div>
+<script type="text/javascript">
+  function toggle() {
+    var blur = document.getElementById("profile-cont");
+    blur.classList.toggle("active");
+
+    var popup = document.getElementById("followers-popup");
+    popup.classList.toggle("active");
+  }
+  function toggle2() {
+    var blur = document.getElementById("profile-cont");
+    blur.classList.toggle("active");
+
+    var popup = document.getElementById("following-popup");
+    popup.classList.toggle("active");
+  }
+</script>

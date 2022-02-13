@@ -1,0 +1,20 @@
+<link rel="stylesheet" href="/css/followList.css" />
+<div>
+    <h1>Followers</h1>
+    <div class="list">
+  <%for(f of profile_user.followers){%>
+  <div class="follower">
+    <img
+      src="<%=f.avatar%>"
+      alt="<%=f.username%>"
+      width="30px"
+      height="30px"
+      style="border-radius: 50%"
+      class="list-avatar"
+    />
+    <a href="/user/profile/<%=f.id%>"><span class="follow-name"><%=f.username%></span></a>
+  </div>
+  <%}%>
+</div>
+  <a href="#" onclick="toggle()" class="close-button">close</a>
+</div>

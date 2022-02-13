@@ -1,0 +1,22 @@
+h1{
+    font-family: 'Anton', sans-serif;
+}
+.follow-name{
+    position: relative;
+    bottom: 10px;
+    font-family: 'Anton', sans-serif;
+}
+.close-button{
+    background-color: white;
+    font-family: 'Anton', sans-serif;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 10px;
+    position:relative;
+    top: 30px;
+    padding: 10px;
+}
+.list{
+    height: 35vh;
+    overflow: scroll;
+}
