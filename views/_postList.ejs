@@ -11,11 +11,15 @@
       class="avatar"
     />
     <a href="/user/profile/<%=p.user.id%>"><span class="post-user-name"><%=p.user.username%></span></a>
+    <%if(locals.user && locals.user.id==p.user.id){%>
     <span style="font-weight: 1000;" class="options-button" onclick="toggle('<%=p.id%>')">...</span>
+    <%}%>
     <div class="post-content"><%=p.content%></div>
+    
     <form action="/post/destroy/<%=p.id%>" method="POST" id="delete-popup-<%=p.id%>" class="delete-popup">
       <button class="delete-post-button">delete post</button>
     </form>
+    
   </div>
 
   <%}%>
