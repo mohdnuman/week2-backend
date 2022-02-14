@@ -1,9 +1,11 @@
 .post-input{
     margin: 10px;
     width: 55vw;
+    outline: none;
     height: 15vh;
     display: inline-block;
-    border: 2px solid blue;
+    border: 0px;
+    border-bottom: 2px solid blue;
 }
 .post-button{
     margin: 10px;
@@ -35,7 +37,7 @@
     /* background-color: lightgray; */
     /* border: 2px solid black;
     border-radius: 10px; */
-    height: 30vh;
+    height: 45vh;
     width: 69vw;
     background-color: white;
     margin: 20px;
@@ -51,4 +53,13 @@
 h1{
     font-family: 'Anton', sans-serif;
     margin: 10px;
+}
+.create-post-cont{
+  border: 2px solid black;
+  width: 57vw;
+  height: 20vh;
+  margin-bottom: 20px;
+}
+.image-icon{
+  margin: 10px;
 }

@@ -15,6 +15,7 @@
     <span style="font-weight: 1000;" class="options-button" onclick="toggle('<%=p.id%>')">...</span>
     <%}%>
     <div class="post-content"><%=p.content%></div>
+    <%if(p.image){%><img src="<%=p.image%>"  style="height:20px; width:20px;"/><%}%>
     
     <form action="/post/destroy/<%=p.id%>" method="POST" id="delete-popup-<%=p.id%>" class="delete-popup">
       <button class="delete-post-button">delete post</button>
