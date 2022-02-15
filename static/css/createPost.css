@@ -8,8 +8,8 @@
     border-bottom: 2px solid blue;
 }
 .post-button{
-    margin: 10px;
-    margin-top: 25px;
+    margin-top: 15px;
+    margin-bottom: 15px;
     padding: 5px 30px;
     background: rgb(2, 0, 36);
   background: radial-gradient(
@@ -24,7 +24,7 @@
     display: inline-block;
     font-family: 'Anton', sans-serif;
     position: relative;
-    bottom: 3vh;
+    /* bottom: 3vh; */
 }
 .post-button:hover{
     cursor: pointer;
@@ -56,10 +56,10 @@ h1{
     margin: 10px;
 }
 .create-post-cont{
-  border: 2px solid black;
+  border: 1px solid black;
   width: 57vw;
   height: 20vh;
-  margin-bottom: 20px;
+  margin: 20px;
 }
 .image-icon{
   margin: 10px;

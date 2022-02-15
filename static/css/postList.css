@@ -39,9 +39,13 @@
 .options-button {
   position: absolute;
   right: 10px;
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 .options-button:hover {
   cursor: pointer;
+  /* font-size: 1.2rem; */
+  font-weight: 1000;
 }
 
 .delete-popup {
@@ -69,5 +73,6 @@
 }
 
 .post-image{
-    margin: 10px 20px;
+    margin: 5px 20px;
+    box-shadow: 5px 5px 5px black;
 }

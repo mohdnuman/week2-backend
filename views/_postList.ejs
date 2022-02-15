@@ -16,7 +16,7 @@
     />
     <a href="/user/profile/<%=p.user.id%>"><span class="post-user-name"><%=p.user.username%></span></a>
     <%if(locals.user && locals.user.id==p.user.id){%>
-    <span style="font-weight: 1000;" class="options-button" onclick="toggle('<%=p.id%>')">...</span>
+    <span class="options-button" onclick="toggle('<%=p.id%>')">...</span>
     <%}%>
     <div class="post-content"><%=p.content%></div>
     <%if(p.avatar){%><img src="<%=p.avatar%>"  style="height:230px; width:230px;" class="post-image"/><%}%>
