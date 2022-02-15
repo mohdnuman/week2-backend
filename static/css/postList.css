@@ -1,73 +1,73 @@
-.post-list-cont{
-    /* border-top:2px solid black ; */
-    margin-top:10px;
+.post-list-cont {
+  /* border-top:2px solid black ; */
+  margin-top: 10px;
+  width: 80vw;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
-.post-cont{
-    height: 50vh;
-  width: 69vw;
+.post-cont {
+  height: 50vh;
+  width: 20vw;
   background-color: white;
   margin: 20px;
-  position:relative;
+  position: relative;
   padding: 10px;
-    border: 1px solid #77aaff;
-    box-shadow:  -1px 1px #77aaff,
-         -2px 2px #77aaff,
-         -3px 3px #77aaff,
-         -4px 4px #77aaff,
-         -5px 5px #77aaff;
+  border: 1px solid #77aaff;
+  box-shadow: -1px 1px #77aaff, -2px 2px #77aaff, -3px 3px #77aaff,
+    -4px 4px #77aaff, -5px 5px #77aaff;
 }
-.post-cont-2{
-    height: 20vh;
-  width: 69vw;
+.post-cont-2 {
+  height: 50vh;
+  width: 20vw;
   background-color: white;
   margin: 20px;
-  position:relative;
+  position: relative;
   padding: 10px;
-    border: 1px solid #77aaff;
-    box-shadow:  -1px 1px #77aaff,
-         -2px 2px #77aaff,
-         -3px 3px #77aaff,
-         -4px 4px #77aaff,
-         -5px 5px #77aaff;
+  border: 1px solid #77aaff;
+  box-shadow: -1px 1px #77aaff, -2px 2px #77aaff, -3px 3px #77aaff,
+    -4px 4px #77aaff, -5px 5px #77aaff;
 }
-.post-user-name{
-    position: relative;
-    bottom: 15px;
-    margin: 5px;
-    font-family: 'Anton', sans-serif;
+.post-user-name {
+  position: relative;
+  bottom: 15px;
+  margin: 5px;
+  font-family: "Anton", sans-serif;
 }
-.post-content{
-    margin: 10px;
-    
+.post-content {
+  margin: 10px;
 }
-.options-button{
-    position:absolute;
-    right: 10px;
+.options-button {
+  position: absolute;
+  right: 10px;
 }
-.options-button:hover{
-    cursor: pointer;
+.options-button:hover {
+  cursor: pointer;
 }
 
-.delete-popup{
-    position:absolute;
-    right: 10px;
-    top:30px;
-    visibility: hidden;
-    opacity: 0;
-    transition: 0.5s;
+.delete-popup {
+  position: absolute;
+  right: 10px;
+  top: 30px;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.5s;
 }
-.delete-popup.active{
-    visibility: visible;
-    opacity: 1;
-    transition:0.5s;
+.delete-popup.active {
+  visibility: visible;
+  opacity: 1;
+  transition: 0.5s;
 }
-.delete-post-button{
-    background-color: white;
-    border: 0px;
-    box-shadow:2px 2px 2px blue;
-    border: 1px solid black;
-    font-family: 'Anton', sans-serif;
+.delete-post-button {
+  background-color: white;
+  border: 0px;
+  box-shadow: 2px 2px 2px blue;
+  border: 1px solid black;
+  font-family: "Anton", sans-serif;
 }
-.delete-post-button:hover{
-    cursor: pointer;
+.delete-post-button:hover {
+  cursor: pointer;
+}
+
+.post-image{
+    margin: 10px 20px;
 }

@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="/css/postList.css" />
-<div class="post-list-cont">
+<div class="post-list-cont" style="display: flex;">
   <%for(p of posts){%>
     <%if(p.avatar){%>
   <div class="post-cont">
@@ -19,7 +19,7 @@
     <span style="font-weight: 1000;" class="options-button" onclick="toggle('<%=p.id%>')">...</span>
     <%}%>
     <div class="post-content"><%=p.content%></div>
-    <%if(p.avatar){%><img src="<%=p.avatar%>"  style="height:200px; width:200px;"/><%}%>
+    <%if(p.avatar){%><img src="<%=p.avatar%>"  style="height:230px; width:230px;" class="post-image"/><%}%>
     
     <form action="/post/destroy/<%=p.id%>" method="POST" id="delete-popup-<%=p.id%>" class="delete-popup">
       <button class="delete-post-button">delete post</button>
