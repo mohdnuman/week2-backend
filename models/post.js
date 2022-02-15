@@ -10,7 +10,7 @@ const postSchema=new mongoose.Schema({
         type:String,
         required:true
     },
-    image: {
+    avatar: {
         type: String,
       },
     user:{
@@ -22,22 +22,22 @@ const postSchema=new mongoose.Schema({
 });
 
 const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, path.join(__dirname, "..", AVATAR_PATH));
-    },
-    filename: function (req, file, cb) {
-      cb(null, file.fieldname + "-" + Date.now());
-    },
-  });
-  
-  //static methods
-  postSchema.statics.uploadedImage = multer({ storage: storage }).single(
-    "image"
-  );
-  postSchema.statics.avatarPath = AVATAR_PATH;
-  
-  const Post = mongoose.model("Post", postSchema);
-  
-  module.exports = Post;
+  destination: function (req, file, cb) {
+    cb(null, path.join(__dirname, "..", AVATAR_PATH));
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.fieldname + "-" + Date.now());
+  },
+});
+
+//static methods
+postSchema.statics.uploadedAvatar = multer({ storage: storage }).single(
+  "avatar"
+);
+postSchema.statics.avatarPath = AVATAR_PATH;
+
+const Post = mongoose.model("Post", postSchema);
+
+module.exports = Post;
 // const Post=mongoose.model('Post',postSchema);
 // module.exports=Post;

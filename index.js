@@ -9,6 +9,7 @@ const passportLocal=require('./config/passport-local-strategy');
 const passsportGoogle=require("./config/passport-google-oauth2-strategy");
 const MongoStore=require('connect-mongo')(session);
 
+
 app.use(express.static('./static'));
 app.use(express.urlencoded());
 app.use(cookieParser());
