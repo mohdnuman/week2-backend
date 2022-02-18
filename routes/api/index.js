@@ -9,6 +9,7 @@ const usersApiController=require('../../controllers/api/user_api');
 router.use('/user',require("./user.js"));
 router.get('/user/:id',usersApiController.fetchUser);
 router.use('/connection',require("./connection.js"));
+router.use('/post',require('./post'));
 
 
 module.exports=router;
