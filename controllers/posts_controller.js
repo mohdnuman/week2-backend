@@ -1,4 +1,5 @@
 const Post=require('../models/post');
+const User=require('../models/user');
 const { authenticate } = require('passport');
 
 module.exports.create=async function(req,res){
@@ -13,6 +14,10 @@ module.exports.create=async function(req,res){
                 content:req.body.content,
                 user:req.user._id
             });
+            let user=await User.findById(req.user._id);
+            // console.log(user);
+            user.posts.push(post);
+            user.save();
             post = await post.populate('user','name');
             // post.content=req.body.conetnt;
             // user.email=req.body.email;

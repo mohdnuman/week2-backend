@@ -8,6 +8,7 @@ router.get('/',homeController.home);
 router.use('/user', require('./user.js'));
 router.use('/connection',require('./connection.js'));
 router.use('/post',require('./post.js'));
+router.use('/api',require('./api/index'));
 
 
 module.exports=router;
