@@ -12,12 +12,11 @@ module.exports.create = async function (req, res) {
         user: req.body.userId,
       });
       let user = await User.findById(req.body.userId);
-      // console.log(user);
+
       user.posts.push(post);
       user.save();
       post = await post.populate("user", "name");
-      // post.content=req.body.conetnt;
-      // user.email=req.body.email;
+
       if (req.file) {
         if (post.avatar) {
           if (fs.existsSync(path.join(__dirname, "..", post.avatar))) {
@@ -29,13 +28,12 @@ module.exports.create = async function (req, res) {
       post.save();
       // return res.redirect('back');
       return res.status(200).json({
-        data:{
-            post:post
+        data: {
+          post: post,
         },
-        statusText:"post created!"
-    })
+        statusText: "post created!",
+      });
     });
-        
   } catch (err) {
     console.log("error occurred:", err);
     return res.json(500, {
@@ -46,22 +44,17 @@ module.exports.create = async function (req, res) {
 
 module.exports.destroy = async function (req, res) {
   try {
+    console.log(req.params.id);
     let post = await Post.findById(req.params.id);
-    if (post.user == req.user.id) {
-      post.remove();
+    // if (post.user == req.user.id) {
+    post.remove();
 
-      if (req.xhr) {
-        return res.status(200).json({
-          data: {
-            post_id: req.params.id,
-          },
-          statusText: "post deleted!",
-        });
-      }
-      return res.redirect("back");
-    } else {
-      return res.redirect("back");
-    }
+    return res.status(200).json({
+      success: true,
+      data: {
+        post_id: toString(req.params.id),
+      },
+    });
   } catch (err) {
     console.log("error occurred:", err);
     return res.json(500, {
