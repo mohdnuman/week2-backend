@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.26.0",
     "bcrypt": "^5.0.1",
     "connect-mongo": "^3.2.0",
     "cookie-parser": "^1.4.5",
