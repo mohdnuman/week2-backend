@@ -52,12 +52,18 @@ const userSchema = new mongoose.Schema(
         ref: "User",
       },
     ],
-    posts:[
+    posts: [
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Post",
       },
-    ]
+    ],
+    classes: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Class",
+      },
+    ],
   },
   {
     timeStamps: true,
