@@ -1,0 +1,49 @@
+<link rel="stylesheet" href="/css/createPost.css" />
+<%if(locals.user){%>
+<div class="post-feed">
+  <h1>Create A Course</h1>
+
+  
+    <div style="height: 25vh" class="create-post-cont">
+      <form action="/course/create" id="new-post-form" method="POST" enctype="multipart/form-data">
+      <textarea
+        name="name"
+        cols="30"
+        rows="1"
+        placeholder="Name...."
+        class="course-input"
+      ></textarea>
+      <textarea
+      name="description"
+      cols="30"
+      rows="2"
+      placeholder="description...."
+      class="course-input"
+    ></textarea>
+    <input type="text" placeholder="category..." name="category"/>
+      <div style="height:0px;overflow:hidden">
+      <input
+        type="file"
+        name="avatar"
+        placeholder="uploaded image"
+        class="input-field"
+        id="fileInputCourse"
+      />
+    </div><img
+        src="https://cdn-icons-png.flaticon.com/512/833/833281.png"
+        style="height: 30px; width: 30px; display: block"
+        class="image-icon"
+        onclick="chooseFile();"
+      />
+    
+    <input type="submit" value="Post" class="post-button" />
+  </form>
+</div>
+</div>
+<%}%>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    function chooseFile() {
+       $("#fileInputCourse").click();
+    }
+ </script>

@@ -1,5 +1,7 @@
 const User=require('../models/user');
 const Post=require('../models/post');
+const Course=require('../models/course');
+
 
 
 module.exports.home=async function(req,res){
@@ -8,10 +10,13 @@ module.exports.home=async function(req,res){
         let posts=await Post.find({})
         .sort('-createdAt')
         .populate('user');
+        let courses=await Course.find({})
+
 
         return res.render('home',{
         users:users,
-        posts:posts
+        posts:posts,
+        courses:courses
         });
 
     }catch(err){
