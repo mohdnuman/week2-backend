@@ -63,3 +63,25 @@ module.exports.fetchSkillBasedCourses=async function(req,res){
         });
     }
 }
+
+module.exports.fetchCourse=async function(req,res){
+    try{
+        // console.log(req);
+        let course=await Course.findById(req.params.id);
+        // console.log(user);
+        return res.json(200,{
+            message:"here is the course",
+            success:true,
+            data:{
+                course:course
+            }
+        })
+
+    }catch(error){
+        console.log("error occurred:",error);
+        return res.json(500,{
+
+            message:"internal server error!"
+        });
+    }
+}

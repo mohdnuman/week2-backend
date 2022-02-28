@@ -1,28 +1,37 @@
-const mongoose=require('mongoose');
+const mongoose = require("mongoose");
 const multer = require("multer");
 const path = require("path");
 
 const AVATAR_PATH = path.join("/uploads/courses/images");
 
-const courseSchema=new mongoose.Schema({
-    name:{
-        type:String,
-        required:true
+const courseSchema = new mongoose.Schema(
+  {
+    name: {
+      type: String,
+      required: true,
     },
-    description:{
-        type:String,
-        required:true
+    description: {
+      type: String,
+      required: true,
     },
-    category:{
-      type:String,
-      required:true
+    category: {
+      type: String,
+      required: true,
     },
     avatar: {
-        type: String,
+      type: String,
+    },
+    lectures: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Lecture",
       },
-},{
-    timestamps:true
-});
+    ],
+  },
+  {
+    timestamps: true,
+  }
+);
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
