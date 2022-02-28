@@ -67,7 +67,7 @@ module.exports.fetchSkillBasedCourses=async function(req,res){
 module.exports.fetchCourse=async function(req,res){
     try{
         // console.log(req);
-        let course=await Course.findById(req.params.id);
+        let course=await Course.findById(req.params.id).populate('lectures');
         // console.log(user);
         return res.json(200,{
             message:"here is the course",

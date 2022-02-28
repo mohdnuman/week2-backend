@@ -2,6 +2,13 @@
     <%=course.name%>
     <br />
     <%=course.description%>
+    
+    <%for(lecture of course.lectures){%>
+      <video width="320" height="240" controls>
+      <source src="<%=lecture.video%>" type="video/ogg">
+    </video>
+      <%}%>
+    
 
     <form action="/lecture/create" id="new-post-form" method="POST" enctype="multipart/form-data">
         <textarea
