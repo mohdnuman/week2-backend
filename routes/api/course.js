@@ -6,5 +6,6 @@ router.get('/tech',coursesApiController.fetchTechCourses);
 router.get('/nontech',coursesApiController.fetchNonTechCourses);
 router.get('/skillbased',coursesApiController.fetchSkillBasedCourses);
 router.get('/:id',coursesApiController.fetchCourse);
+router.post('/create',coursesApiController.create);
 
 module.exports=router;

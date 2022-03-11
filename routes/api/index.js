@@ -11,6 +11,8 @@ router.get('/user/:id',usersApiController.fetchUser);
 router.use('/connection',require("./connection.js"));
 router.use('/post',require('./post'));
 router.use('/courses',require('./course'));
+router.use('/lectures',require('./lecture'));
+
 
 
 

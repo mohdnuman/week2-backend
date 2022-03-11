@@ -6,7 +6,7 @@ const jwt=require('jsonwebtoken');
 module.exports.createSession=async function(req,res){
     try{
         let user=await User.findOne({email:req.body.email}).populate('following').populate('followers').populate('posts');
-
+        console.log(req.body);
         if(!user || user.password!=req.body.password){
             return res.json(422,{
                 message:"wrong username or password!"
