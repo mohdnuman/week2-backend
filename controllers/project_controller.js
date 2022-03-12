@@ -19,3 +19,28 @@ module.exports.getProject = async function (req, res) {
       .json({ success: false, message: "Internal Server Error" });
   }
 };
+
+module.exports.getUserProjectList = async function (req, res) {
+  try {
+    const user = req.params.user;
+
+    if (!user) {
+      return res.sendStatus(403);
+    }
+
+    if (!user) {
+      return res
+        .status(404)
+        .json({ success: false, message: "UserId not present" });
+    }
+
+    const projectList = await Project.find({ user });
+
+    return res.status(200).json({ success: true, data: projectList });
+  } catch (error) {
+    console.log(error);
+    return res
+      .status(404)
+      .json({ success: false, message: "Internal Server Error" });
+  }
+};
