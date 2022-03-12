@@ -10,6 +10,11 @@ const classSchema = new mongoose.Schema(
     students: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
     teacher: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
     thumbnail: { type: String },
+    schedule: [
+      {
+        date: Date,
+      },
+    ],
   },
   { timestamps: true }
 );

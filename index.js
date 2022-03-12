@@ -11,7 +11,8 @@ const MongoStore = require("connect-mongo")(session);
 const cors = require("cors");
 
 app.use(express.static("./static"));
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(cookieParser());
 app.use(cors());
 

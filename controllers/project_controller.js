@@ -25,6 +25,10 @@ module.exports.getUserProjectList = async function (req, res) {
     const user = req.params.user;
 
     if (!user) {
+      return res.sendStatus(403);
+    }
+
+    if (!user) {
       return res
         .status(404)
         .json({ success: false, message: "UserId not present" });
