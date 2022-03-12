@@ -39,3 +39,23 @@ module.exports.enroll = async (req, res) => {
       .json({ success: false, message: "Internal Server Error" });
   }
 };
+
+module.exports.getClassList = async (req, res) => {
+  try {
+    const user = req.params.user;
+
+    console.log(user);
+
+    const classList = await Class.find({ students: user }).populate({
+      path: "teacher",
+      select: "firstName lastName",
+    });
+
+    return res.status(200).json({ success: true, data: classList });
+  } catch (error) {
+    console.log(error);
+    return res
+      .status(500)
+      .json({ success: false, message: "Internal Server Error" });
+  }
+};
