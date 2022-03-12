@@ -7,7 +7,7 @@ router.use("/user", require("./user.js"));
 router.get("/user/:id", usersApiController.fetchUser);
 router.use("/connection", require("./connection.js"));
 router.use("/post", require("./post"));
-router.use("/project", require("./project"));
-router.use("/class", require("./class"));
+router.use("/courses", require("./course"));
+router.use("/lectures", require("./lecture"));
 
 module.exports = router;

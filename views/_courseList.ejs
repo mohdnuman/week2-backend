@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="/css/postList.css" />
+<div class="post-list-cont" style="display: flex;">
+  <%for(c of courses){%>
+    <a href="/course/<%=c._id%>">
+    <%if(c.avatar){%>
+  <div class="post-cont">
+    <%}else{%>
+      <div class="post-cont-2">
+      <%}%>
+
+    
+    <div class="post-content"><%=c.name%></div>
+    <div class="post-content"><%=c.description%></div>
+
+    <%if(c.avatar){%><img src="<%=c.avatar%>"  style="height:230px; width:230px;" class="post-image"/>
+  </a>
+    <%}%>
+
+
+    
+ 
+    
+  </div>
+
+  <%}%>
+</div>
