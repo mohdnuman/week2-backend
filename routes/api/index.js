@@ -9,5 +9,9 @@ router.use("/connection", require("./connection.js"));
 router.use("/post", require("./post"));
 router.use("/courses", require("./course"));
 router.use("/lectures", require("./lecture"));
+router.use('/mcq',require("./mcq.js"));
+router.use('/fill',require("./fill.js"));
+router.use('/code',require("./code"));
+
 
 module.exports = router;

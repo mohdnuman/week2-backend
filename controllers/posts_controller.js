@@ -1,6 +1,6 @@
 const Post=require('../models/post');
 const User=require('../models/user');
-const { authenticate } = require('passport');
+// const { authenticate } = require('passport');
 
 module.exports.create=async function(req,res){
     try{
@@ -21,8 +21,9 @@ module.exports.create=async function(req,res){
             post = await post.populate('user','name');
             // post.content=req.body.conetnt;
             // user.email=req.body.email;
+            console.log(req.file);
             if(req.file){
-                
+                console.log('hello');
                 if(post.avatar){
                     if(fs.existsSync(path.join(__dirname,'..',post.avatar))){
                     fs.unlinkSync(path.join(__dirname,'..',post.avatar));

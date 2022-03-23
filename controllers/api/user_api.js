@@ -36,6 +36,7 @@ module.exports.fetchUser=async function(req,res){
     try{
         // console.log(req);
         let user=await User.findById(req.params.id).populate('followers').populate('following').populate('posts');
+        console.log(user)
         // console.log(user);
         return res.json(200,{
             message:"here is the user",

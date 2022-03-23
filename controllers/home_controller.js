@@ -13,6 +13,7 @@ module.exports.home=async function(req,res){
         let courses=await Course.find({})
 
 
+
         return res.render('home',{
         users:users,
         posts:posts,
