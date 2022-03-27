@@ -16,7 +16,7 @@ module.exports.follow=async function(req,res){
         message:"user followed",
         success:true,
         data:{
-            user:follower
+            user:following
         }
     })
     }catch(error){
